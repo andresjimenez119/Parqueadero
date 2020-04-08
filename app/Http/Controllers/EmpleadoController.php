@@ -13,17 +13,10 @@ use DB;
 
 class EmpleadoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    /*public function index()
+    public function __construct()
     {
-        $empleados=Empleado::orderBy('id','DESC')->paginate(3);
-        return view('Empleado.index',compact('empleados')); 
-    }*/
+        $this->middleware('auth');
+    }
 
     public function index(Request $request)
     {
@@ -73,8 +66,8 @@ class EmpleadoController extends Controller
      */
     public function show($id)
     {
-        $empleados=Empleado::find($id);
-        return view('Empleado.show',compact('empleados'));
+        $empleados = Empleado::find($id);
+        return view('Empleado.show', compact('empleados'));
     }
 
     /**
@@ -85,8 +78,8 @@ class EmpleadoController extends Controller
      */
     public function edit($id)
     {
-        $empleado=Empleado::find($id);
-        return view('empleado.edit',compact('empleado'));
+        $empleado = Empleado::find($id);
+        return view('empleado.edit', compact('empleado'));
     }
 
     /**
@@ -98,11 +91,13 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[ 'nombre'=>'required',  'apellido'=>'required',
-         'cedula'=>'required', 'direccion'=>'required', 'telefono'=>'required',
-          'email'=>'required', 'cargo'=>'required', 'clave'=>'required']);
+        $this->validate($request, [
+            'nombre' => 'required',  'apellido' => 'required',
+            'cedula' => 'required', 'direccion' => 'required', 'telefono' => 'required',
+            'email' => 'required', 'cargo' => 'required', 'clave' => 'required'
+        ]);
         empleado::find($id)->update($request->all());
-        return redirect()->route('empleado.index')->with('success','Registro actualizado');
+        return redirect()->route('empleado.index')->with('success', 'Registro actualizado');
     }
 
     /**
@@ -114,6 +109,6 @@ class EmpleadoController extends Controller
     public function destroy($id)
     {
         Empleado::find($id)->delete();
-        return redirect()->route('empleado.index')->with('success','Registro Eliminado');
+        return redirect()->route('empleado.index')->with('success', 'Registro Eliminado');
     }
 }

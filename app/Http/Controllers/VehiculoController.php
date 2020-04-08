@@ -13,17 +13,10 @@ use DB;
 
 class VehiculoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    /*public function index()
+    public function __construct()
     {
-        $vehiculos=Vehiculo::orderBy('id','DESC')->paginate(3);
-        return view('Vehiculo.index',compact('vehiculos')); 
-    }*/
+        $this->middleware('auth');
+    }
 
     public function index(Request $request)
     {
@@ -69,8 +62,8 @@ class VehiculoController extends Controller
      */
     public function show($id)
     {
-        $vehiculos=Vehiculo::find($id);
-        return view('Vehiculo.show',compact('vehiculos'));
+        $vehiculos = Vehiculo::find($id);
+        return view('Vehiculo.show', compact('vehiculos'));
     }
 
     /**
@@ -81,8 +74,8 @@ class VehiculoController extends Controller
      */
     public function edit($id)
     {
-        $vehiculo=vehiculo::find($id);
-        return view('vehiculo.edit',compact('vehiculo'));
+        $vehiculo = vehiculo::find($id);
+        return view('vehiculo.edit', compact('vehiculo'));
     }
 
     /**
@@ -94,9 +87,9 @@ class VehiculoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[ 'color'=>'required',  'placa'=>'required', 'tipo'=>'required', 'modelo'=>'required']);
+        $this->validate($request, ['color' => 'required',  'placa' => 'required', 'tipo' => 'required', 'modelo' => 'required']);
         vehiculo::find($id)->update($request->all());
-        return redirect()->route('vehiculo.index')->with('success','Registro actualizado');
+        return redirect()->route('vehiculo.index')->with('success', 'Registro actualizado');
     }
 
     /**
@@ -108,6 +101,6 @@ class VehiculoController extends Controller
     public function destroy($id)
     {
         Vehiculo::find($id)->delete();
-        return redirect()->route('vehiculo.index')->with('success','Registro Eliminado');
+        return redirect()->route('vehiculo.index')->with('success', 'Registro Eliminado');
     }
 }
