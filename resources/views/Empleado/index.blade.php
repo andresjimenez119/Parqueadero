@@ -10,7 +10,7 @@
     </div>
 </div>
 <div class="row" style="text-align: center">
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-15">
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-condensed table-hover">
                 <thead class="thead-dark">
