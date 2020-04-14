@@ -20,6 +20,7 @@
                     <th>Cedula</th>
                     <th>Dirección</th>
                     <th>Telefono</th>
+                    <th>Email</th>
                     <th>Cargo</th>
                     <th>Clave</th>
                     <th>Opciones</th>
@@ -32,6 +33,7 @@
                     <td>{{ $empleado->cedula}}</td>
                     <td>{{ $empleado->direccion}}</td>
                     <td>{{ $empleado->telefono}}</td>
+                    <td>{{ $empleado->email}}</td>
                     <td>{{ $empleado->cargo}}</td>
                     <td>{{ $empleado->clave}}</td>
                     <td>

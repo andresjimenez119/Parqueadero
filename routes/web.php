@@ -12,12 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
+
 
 Route::resource('vehiculo', 'VehiculoController');
 Route::resource('empleado', 'EmpleadoController');
 
 
+
 Auth::routes();
-Route::get('/welcome', 'HomeController@index')->name('welcome');
+Route::get('/home', 'HomeController@index')->name('home');
+ 
+

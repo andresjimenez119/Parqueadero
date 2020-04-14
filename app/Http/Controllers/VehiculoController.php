@@ -20,6 +20,7 @@ class VehiculoController extends Controller
 
     public function index(Request $request)
     {
+        $request->user()->authorizeRoles('admin');
         if ($request) {
             $query = trim($request->get('searchText'));
             $vehiculos = DB::table('vehiculos')->where('placa', 'LIKE', '%' . $query . '%')->orderBy('id', 'asc')->paginate(5);
@@ -46,6 +47,8 @@ class VehiculoController extends Controller
      */
     public function store(VehiculoFormRequest $request)
     {
+        $request->user()->authorizeRoles('admin');
+
         $vehiculo = new Vehiculo;
         $vehiculo->color = $request->get('color');
         $vehiculo->tipo = $request->get('tipo');
@@ -75,6 +78,7 @@ class VehiculoController extends Controller
      */
     public function edit($id)
     {
+
         $vehiculo = vehiculo::find($id);
         return view('vehiculo.edit', compact('vehiculo'));
     }
@@ -88,6 +92,8 @@ class VehiculoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->user()->authorizeRoles('admin');
+
         $this->validate($request, ['color' => 'required',  'placa' => 'required', 'tipo' => 'required', 'modelo' => 'required']);
         vehiculo::find($id)->update($request->all());
         return redirect()->route('vehiculo.index')->with('success', 'Registro actualizado');
