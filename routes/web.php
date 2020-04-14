@@ -23,5 +23,6 @@ Route::resource('empleado', 'EmpleadoController');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
  
 
