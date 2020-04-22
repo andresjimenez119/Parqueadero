@@ -19,6 +19,22 @@ Route::get('/', function () {
 Route::resource('vehiculo', 'VehiculoController');
 Route::resource('empleado', 'EmpleadoController');
 
+Route::resource('tarifa','TarifaController');
+
+/*
+Route::get('/', function () {
+    $tarifa = App\Tarifa::all();
+    return $tarifa;
+
+    return $tarifa->tipo_vehiculo->nombre;
+
+    $tipo_vehiculo = App\tipo_vehiculo::findOrfall(1);
+    retunr $tipo_vehiculo->tarifa;
+
+    $tarifa = App\Tarifa::all();
+    return view('welcome')->with('tarifa',$tarifa);
+});
+*/
 
 
 Auth::routes();
