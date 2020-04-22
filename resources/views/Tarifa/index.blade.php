@@ -15,7 +15,7 @@
             <table class="table table-striped table-bordered table-condensed table-hover">
                 <thead class="thead-dark">
                     <th>Id</th>
-                    <th>Tipo tarifa</th>
+                    <th>Tipo Vehiculo</th>
                     <th>Valor</th>
                     <th>Estado</th>
                     <th>Opciones</th>
@@ -27,7 +27,7 @@
                     <td>{{ $tarifa->valor}}</td>
                     <td>{{ $tarifa->estado}}</td>
                     <td>
-                        <a href="{{URL::action('tarifaController@edit',$tarifa->id)}}">
+                        <a href="{{URL::action('TarifaController@edit',$tarifa->id)}}">
                             <button class="btn btn-info">Editar <span class="glyphicon glyphicon-pencil"></button></a>
                         <a href="" data-target="#modal-delete-{{$tarifa->id}}" data-toggle="modal">
                             <button class="btn btn-danger">Eliminar <span class="glyphicon glyphicon-remove"></button></a>
