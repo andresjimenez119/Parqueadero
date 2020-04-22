@@ -270,7 +270,9 @@ desired effect
                     <li class="header">Menu</li>
                     <!-- Optionally, you can add icons to the links -->
                     <li class="active"><a href="{{url('vehiculo')}}"><i class="fa fa-link"></i> <span>Vehiculos</span></a></li>
+                    <li class="active"><a href="{{url('tarifa')}}"><i class="fa fa-link"></i> <span>Tarifa</span></a></li>
                     <li class="active"><a href="{{url('empleado')}}"><i class="fa fa-link"></i> <span>Empleados</span></a></li>
+                    
                     <li class="treeview">
                         <a href="#"><i class="fa fa-link"></i> <span>Movimientos</span>
                             <span class="pull-right-container">

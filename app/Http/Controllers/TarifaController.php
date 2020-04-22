@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use DB;
+use App\Http\Requests\TarifaFormRequest;
+use App\Http\Requests;
 use App\Tarifa;
+use DB;
 
 class TarifaController extends Controller
 {
@@ -27,10 +29,8 @@ class TarifaController extends Controller
      */
     public function create()
     {
-        $tipo_vehiculo = DB::table('tipo_vehiculos')
-            ->select('tipo_vehiculos.nombre', 'tipo_vehiculos.id')
-            ->get();
-        return view('Tarifa.create')->with('tipo_vehiculo', $tipo_vehiculo);
+        $tipo_vehiculo=DB::table('tipo_vehiculos')->select('tipo_vehiculos.nombre', 'tipo_vehiculos.id')->get();
+        return view('Tarifa.create')->with('tipo_vehiculo',$tipo_vehiculo);
 
     }
 
@@ -40,9 +40,16 @@ class TarifaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TarifaFormRequest $request)
     {
-        //
+        $request->user()->authorizeRoles('admin');
+
+        $tarifa = new Tarifa;
+        $tarifa->tipo = $request->get('tipo_vehiculo_id');
+        $tarifa->placa = $request->get('valor');
+        $tarifa->modelo = $request->get('estado');
+        $tarifa->save();
+        return Redirect::to('tarifa');
     }
 
     /**
@@ -53,7 +60,8 @@ class TarifaController extends Controller
      */
     public function show($id)
     {
-        //
+        $tarifas = Tarifa::find($id);
+        return view('Tarifa.show', compact('tarifas'));
     }
 
     /**
@@ -77,7 +85,11 @@ class TarifaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->user()->authorizeRoles('admin');
+
+        $this->validate($request, ['tipo_vehiculo_id' => 'required',  'valor' => 'required', 'estado' => 'required']);
+        tarifa::find($id)->update($request->all());
+        return redirect()->route('tarifa.index')->with('success', 'Tarifa Actualizada');
     }
 
     /**
@@ -88,6 +100,7 @@ class TarifaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Tarifa::find($id)->delete();
+        return redirect()->route('tarifa.index')->with('success', 'Tarifa Eliminada');
     }
 }
