@@ -26,10 +26,11 @@
                     <input name="_method" type="hidden" value="PATCH">
 
                     <div class="form-group">
-                        <select name="tipov" id="tipov" class="form-control selectpicker" data-live-search="true" required style="text-align: center">
-                            <option value="" disabled selected>Selecione ID Del Tipo Vehiculo</option>
-                            @foreach($tarifa as $tarv)
-                            <option value="{{$tarv->id}}">{{ $tarv->nombre}}</option>
+                        <label for="Role">Tipo vehiculo ID</label>
+                        <select name="tipov_id" id="tipov_id" class="form-control selectpicker" data-live-search="true" required style="text-align: center">
+                            <option value="" disabled selected>Selecione Tipo Vehiculo</option>
+                            @foreach($tipo_vehiculo_id as $tipov)
+                            <option value="{{$tipov->tipo_vehiculo_id}}">{{ $tipov->tipo_vehiculo_id}}</option>
                             @endforeach
                         </select>
 
@@ -37,11 +38,13 @@
 
 
                     <div class="form-group">
+                        <label for="Role">Tarifa Por Hora</label>
                         <input type="number" name="valor" id="valor" class="form-control input-sm" value="{{$tarifa->valor}}" style="text-align: center">
                     </div>
 
 
                     <div class="form-group">
+                        <label for="Role">Estado</label>
                         <input type="number" name="estado" id="estado" class="form-control input-sm" value="{{$tarifa->estado}}" style="text-align: center">
                     </div>
             </div>

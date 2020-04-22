@@ -45,9 +45,9 @@ class TarifaController extends Controller
         $request->user()->authorizeRoles('admin');
 
         $tarifa = new Tarifa;
-        $tarifa->tipo = $request->get('tipo_vehiculo_id');
-        $tarifa->placa = $request->get('valor');
-        $tarifa->modelo = $request->get('estado');
+        $tarifa->tipov = $request->get('tipo_vehiculo_id');
+        $tarifa->vslot = $request->get('valor');
+        $tarifa->estado = $request->get('estado');
         $tarifa->save();
         return Redirect::to('tarifa');
     }
@@ -72,9 +72,11 @@ class TarifaController extends Controller
      */
     public function edit($id)
     {
-        $tipo_vehiculo=DB::table('tipo_vehiculos')->select('tipo_vehiculos.nombre', 'tipo_vehiculos.id')->get();
-        $tarifa = tarifa::find($id);
-        return view('tarifa.edit', compact('tarifa'))->with('tipo_vehiculo',$tipo_vehiculo);
+        
+        $tarifa = Tarifa::find($id);
+
+        $tipo_vehiculo_id=DB::table('tarifas')->select('tarifas.tipo_vehiculo_id', 'tarifas.id')->get();
+        return view('tarifa.edit', compact('tarifa'))->with('tipo_vehiculo_id',$tipo_vehiculo_id);;
     }
 
     /**
@@ -86,8 +88,6 @@ class TarifaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-
         $this->validate($request, ['tipo_vehiculo_id' => 'required',  'valor' => 'required', 'estado' => 'required']);
         tarifa::find($id)->update($request->all());
         return redirect()->route('tarifa.index')->with('success', 'Tarifa Actualizada');
