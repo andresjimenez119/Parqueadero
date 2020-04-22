@@ -4,8 +4,8 @@
 <div class="row" style="text-align: center">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         
-        <h3>Listado de Tarifas <a href="/tarifa/create"><button class="btn btn-success">
-                    <span class="glyphicon glyphicon-folder-open"></span>Nuevo</button></a></h3>
+        <h3>Listado de Tarifas <a href="/tarifa/create">
+        <button class="btn btn-success">Nuevo <span class="glyphicon glyphicon-folder-open"></span></button></a></h3>
 
     </div>
 </div>

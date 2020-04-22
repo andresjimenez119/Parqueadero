@@ -72,8 +72,9 @@ class TarifaController extends Controller
      */
     public function edit($id)
     {
+        $tipo_vehiculo=DB::table('tipo_vehiculos')->select('tipo_vehiculos.nombre', 'tipo_vehiculos.id')->get();
         $tarifa = tarifa::find($id);
-        return view('tarifa.edit', compact('tarifa'));
+        return view('tarifa.edit', compact('tarifa'))->with('tipo_vehiculo',$tipo_vehiculo);
     }
 
     /**
@@ -85,7 +86,7 @@ class TarifaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->user()->authorizeRoles('admin');
+        
 
         $this->validate($request, ['tipo_vehiculo_id' => 'required',  'valor' => 'required', 'estado' => 'required']);
         tarifa::find($id)->update($request->all());

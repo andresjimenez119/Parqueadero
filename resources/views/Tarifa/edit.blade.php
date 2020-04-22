@@ -26,8 +26,7 @@
                     <input name="_method" type="hidden" value="PATCH">
 
                     <div class="form-group">
-
-                        <select name="tipo_v_id" id="tipo_v_id" class="form-control selectpicker" data-live-search="true" required style="text-align: center">
+                        <select name="tipov" id="tipov" class="form-control selectpicker" data-live-search="true" required style="text-align: center">
                             <option value="" disabled selected>Selecione ID Del Tipo Vehiculo</option>
                             @foreach($tarifa as $tarv)
                             <option value="{{$tarv->id}}">{{ $tarv->nombre}}</option>

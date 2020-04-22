@@ -3,7 +3,7 @@
 
 <div class="row" style="text-align: center">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3> Registrar Nuevo Empleado <a href="empleado/create"><button class="btn btn-success">
+        <h3> Registrar Nuevo Empleado <a href="empleado/create"><button class="btn btn-success">Nuevo 
                     <span class="glyphicon glyphicon-folder-open"></span></button></a></h3>
         @include('Empleado.search')
         <h3>Listado de Empleados </h3>
