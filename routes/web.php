@@ -19,7 +19,7 @@ Route::get('/', function () {
 Route::resource('vehiculo', 'VehiculoController');
 Route::resource('empleado', 'EmpleadoController');
 
-Route::resource('tarifa','TarifaController');
+Route::resource('tarifa', 'TarifaController');
 
 /*
 Route::get('/', function () {
