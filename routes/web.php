@@ -21,6 +21,8 @@ Route::resource('empleado', 'EmpleadoController');
 
 Route::resource('tarifa', 'TarifaController');
 
+Route::resource('tipovehiculo', 'TipoVehiculoController');
+
 /*
 Route::get('/', function () {
     $tarifa = App\Tarifa::all();

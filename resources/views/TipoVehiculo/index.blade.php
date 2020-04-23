@@ -4,10 +4,12 @@
 <div class="row" style="text-align: center">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-        <h3>Listado de Tarifas </h3>
-        <h3> Registrar Nueva Tarifa <a href="/tarifa/create">
+
+        <h3>Registrar Nuevo Tipo De Vehiculo<a href="/tipovehiculo/create">
                 <button class="btn btn-success">Nuevo <span class="glyphicon glyphicon-folder-open"></span>
                 </button></a></h3>
+
+        <h3>Listado Tipos De Vehiculos </h3>
 
     </div>
 </div>
@@ -17,21 +19,19 @@
             <table class="table table-striped table-bordered table-condensed table-hover">
                 <thead class="thead-dark">
                     <th>Id</th>
-                    <th>Tipo Vehiculo</th>
-                    <th>Valor</th>
-                    <th>Estado</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
                     <th>Opciones</th>
                 </thead>
-                @foreach ($tarifa as $tarifa)
+                @foreach ($tipo_vehiculo as $tipo_vehiculo)
                 <tr>
-                    <td>{{ $tarifa->id}}</td>
-                    <td>{{ $tarifa->tipo_vehiculo->nombre}}</td>
-                    <td>{{ $tarifa->valor}}</td>
-                    <td>{{ $tarifa->estado}}</td>
+                    <td>{{ $tipo_vehiculo->id}}</td>
+                    <td>{{ $tipo_vehiculo->nombre}}</td>
+                    <td>{{ $tipo_vehiculo->descripcion}}</td>
                     <td>
-                        <a href="{{URL::action('TarifaController@edit',$tarifa->id)}}">
+                        <a href="{{URL::action('TipoVehiculoController@edit',$tipo_vehiculo->id)}}">
                             <button class="btn btn-info">Editar <span class="glyphicon glyphicon-pencil"></button></a>
-                        <a href="" data-target="#modal-delete-{{$tarifa->id}}" data-toggle="modal">
+                        <a href="" data-target="#modal-delete-{{$tipo_vehiculo->id}}" data-toggle="modal">
                             <button class="btn btn-danger">Eliminar <span class="glyphicon glyphicon-remove"></button></a>
                     </td>
                 </tr>

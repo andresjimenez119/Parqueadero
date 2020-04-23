@@ -11,13 +11,15 @@ use DB;
 
 class TarifaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
+
         $tarifa = Tarifa::all(); //findOrfail(1)
         return view('Tarifa.index')->with('tarifa', $tarifa);
     }
@@ -27,11 +29,12 @@ class TarifaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $tipo_vehiculo=DB::table('tipo_vehiculos')->select('tipo_vehiculos.nombre', 'tipo_vehiculos.id')->get();
-        return view('Tarifa.create')->with('tipo_vehiculo',$tipo_vehiculo);
+        $request->user()->authorizeRoles('admin');
 
+        $tipo_vehiculo = DB::table('tipo_vehiculos')->select('tipo_vehiculos.nombre', 'tipo_vehiculos.id')->get();
+        return view('Tarifa.create')->with('tipo_vehiculo', $tipo_vehiculo);
     }
 
     /**
@@ -70,13 +73,14 @@ class TarifaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        
+        $request->user()->authorizeRoles('admin');
+
         $tarifa = Tarifa::find($id);
 
-        $tipo_vehiculo_id=DB::table('tarifas')->select('tarifas.tipo_vehiculo_id', 'tarifas.id')->get();
-        return view('tarifa.edit', compact('tarifa'))->with('tipo_vehiculo_id',$tipo_vehiculo_id);;
+        $tipo_vehiculo_id = DB::table('tarifas')->select('tarifas.tipo_vehiculo_id', 'tarifas.id')->get();
+        return view('tarifa.edit', compact('tarifa'))->with('tipo_vehiculo_id', $tipo_vehiculo_id);;
     }
 
     /**
@@ -88,6 +92,8 @@ class TarifaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->user()->authorizeRoles('admin');
+
         $this->validate($request, ['tipo_vehiculo_id' => 'required',  'valor' => 'required', 'estado' => 'required']);
         tarifa::find($id)->update($request->all());
         return redirect()->route('tarifa.index')->with('success', 'Tarifa Actualizada');
@@ -99,8 +105,10 @@ class TarifaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
+        $request->user()->authorizeRoles('admin');
+
         Tarifa::find($id)->delete();
         return redirect()->route('tarifa.index')->with('success', 'Tarifa Eliminada');
     }
