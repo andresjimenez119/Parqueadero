@@ -95,7 +95,7 @@ class TarifaController extends Controller
         $request->user()->authorizeRoles('admin');
 
         $this->validate($request, ['tipo_vehiculo_id' => 'required',  'valor' => 'required', 'estado' => 'required']);
-        tarifa::find($id)->update($request->all());
+        Tarifa::find($id)->update($request->all());
         return redirect()->route('tarifa.index')->with('success', 'Tarifa Actualizada');
     }
 

@@ -6,7 +6,7 @@
 
         <h3>Listado de Tarifas </h3>
         <h3> Registrar Nueva Tarifa <a href="/tarifa/create">
-                <button class="btn btn-success">Nuevo <span class="glyphicon glyphicon-folder-open"></span>
+                <button class="btn btn-success">Nuevo  <span class="glyphicon glyphicon-folder-open"></span>
                 </button></a></h3>
 
     </div>
