@@ -57,8 +57,10 @@ class TipoVehiculoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
+        $request->user()->authorizeRoles('admin');
+
         $tipo_vehiculos = Tipo_vehiculo::find($id);
         return view('TipoVehiculo.show', compact('tipo_vehiculos'));
     }
@@ -69,8 +71,10 @@ class TipoVehiculoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
+        $request->user()->authorizeRoles('admin');
+
         $tipo_vehiculo = Tipo_vehiculo::find($id);
         return view('tipovehiculo.edit', compact('tipo_vehiculo'));
 
@@ -85,6 +89,8 @@ class TipoVehiculoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->user()->authorizeRoles('admin');
+
         $this->validate($request, ['nombre' => 'required',  'descripcion' => 'required']);
         Tipo_vehiculo::find($id)->update($request->all());
         return redirect()->route('tipovehiculo.index')->with('success', 'Registro actualizado');
@@ -98,6 +104,8 @@ class TipoVehiculoController extends Controller
      */
     public function destroy(Request $request,$id)
     {
+        $request->user()->authorizeRoles('admin');
+        
         Tipo_vehiculo::find($id)->delete();
         return redirect()->route('tipovehiculo.index')->with('success', 'Tarifa Eliminada');
     }
