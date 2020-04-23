@@ -48,8 +48,8 @@ class TarifaController extends Controller
         $request->user()->authorizeRoles('admin');
 
         $tarifa = new Tarifa;
-        $tarifa->tipov = $request->get('tipo_vehiculo_id');
-        $tarifa->vslot = $request->get('valor');
+        $tarifa->tipo_vehiculo_id = $request->get('tipo_vehiculo_id');
+        $tarifa->valor = $request->get('valor');
         $tarifa->estado = $request->get('estado');
         $tarifa->save();
         return Redirect::to('tarifa');
@@ -105,7 +105,7 @@ class TarifaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy($id, Request $request)
     {
         $request->user()->authorizeRoles('admin');
 

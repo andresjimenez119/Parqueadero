@@ -23,17 +23,12 @@
             <div class="table-container" style="text-align: center">
                 <form method="POST" action="{{ route('tarifa.update',$tarifa->id) }}" role="form">
                     {{ csrf_field() }}
-                    <input name="_method" type="hidden" value="PATCH">
+                    <input name="_method" type="hidden" value="PATCH">                   
 
+                    
                     <div class="form-group">
-                        <label for="Role">Tipo vehiculo ID</label>
-                        <select name="tipo_vehiculo_id" id="tipo_vehiculo_id" class="form-control selectpicker" data-live-search="true" required style="text-align: center">
-                            <option value="" disabled selected>Selecione ID Tipo Vehiculo</option>
-                            @foreach($tipo_vehiculo_id as $tipov)
-                            <option value="{{$tipov->tipo_vehiculo_id}}">{{ $tipov->tipo_vehiculo_id}}</option>
-                            @endforeach
-                        </select>
-
+                        <label for="Role">Tipo Vehiculo ID</label>
+                        <input readonly name="tipo_vehiculo_id" id="tipo_vehiculo_id" class="form-control input-sm" value="{{$tarifa->tipo_vehiculo_id}}" style="text-align: center">
                     </div>
 
 

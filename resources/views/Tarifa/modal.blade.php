@@ -1,4 +1,4 @@
-<div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tabindex="-1" id="modal-delete-{{$vehiculo->id}}">
+<div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tabindex="-1" id="modal-delete-{{$tarifa->id}}">
     {{Form::Open(array('action'=>array('TarifaController@destroy',$tarifa->id),'method'=>'delete'))}}
     <div class="modal-dialog">
         <div class="modal-content">

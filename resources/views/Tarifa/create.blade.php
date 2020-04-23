@@ -15,9 +15,9 @@
 
         {!!Form::open(array('url'=>'tarifa','method'=>'POST','autocomplete'=>'off'))!!}
         {{Form::token()}}
-        <div class="form-group" style="text-align: center">
-            <label for="Role">Tipo vehiculo</label>
-            <select name="role_id" id="role_id" class="form-control selectpicker" data-live-search="true" required style="text-align: center">
+        <div class="form-group" >
+            <label for="nombre">Tipo vehiculo</label>
+            <select name="tipo_vehiculo_id" id="tipo_vehiculo_id" class="form-control selectpicker" data-live-search="true" required style="text-align: center">
                 <option value="" disabled selected>Selecione Tipo Vehiculo</option>
                 @foreach($tipo_vehiculo as $tipov)
                 <option value="{{$tipov->id}}">{{ $tipov->nombre}}</option>
@@ -26,13 +26,13 @@
         </div>
 
         <div class="form-group">
-            <label for="descripcion">Valor</label>
-            <input type="text" name="tipo" class="form-control" placeholder="Valor Hora..." style="text-align: center">
+            <label for="valor">Valor</label>
+            <input type="text" name="valor" class="form-control" placeholder="Valor Hora..." style="text-align: center">
         </div>
 
         <div class="form-group">
-            <label for="descripcion">Estado</label>
-            <input type="text" name="modelo" class="form-control" placeholder="Estado: 1.Activo 2.Inactivo." style="text-align: center">
+            <label for="estado">Estado</label>
+            <input type="text" name="estado" class="form-control" placeholder="Estado: 1.Activo 2.Inactivo." style="text-align: center">
         </div>
 
         <div class="form-group">
