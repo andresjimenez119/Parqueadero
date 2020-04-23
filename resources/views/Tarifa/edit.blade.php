@@ -27,7 +27,7 @@
 
                     <div class="form-group">
                         <label for="Role">Tipo vehiculo ID</label>
-                        <select name="tipov_id" id="tipov_id" class="form-control selectpicker" data-live-search="true" required style="text-align: center">
+                        <select name="tipo_vehiculo_id" id="tipo_vehiculo_id" class="form-control selectpicker" data-live-search="true" required style="text-align: center">
                             <option value="" disabled selected>Selecione Tipo Vehiculo</option>
                             @foreach($tipo_vehiculo_id as $tipov)
                             <option value="{{$tipov->tipo_vehiculo_id}}">{{ $tipov->tipo_vehiculo_id}}</option>
