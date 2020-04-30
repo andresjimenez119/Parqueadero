@@ -299,10 +299,10 @@ desired effect
                     <b>Proyecto Parqueadero</b> <br>
                     <small>Tu vehiculo nuestra prioridad</small>
                 </h1>
-                <ol class="breadcrumb">
+               <!-- <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
                     <li class="active">Here</li>
-                </ol>
+                </ol>-->
                 <img src="{{asset('/dist/img/logo.png')}}" class="img-circle" alt="Nuestro Logo">
             </section>
             <!-- Main content -->
