@@ -23,6 +23,9 @@ Route::resource('tarifa', 'TarifaController');
 
 Route::resource('tipovehiculo', 'TipoVehiculoController');
 
+Route::resource('ingresoV','Ingreso_vehiculoController');
+
+
 /*
 Route::get('/', function () {
     $tarifa = App\Tarifa::all();
