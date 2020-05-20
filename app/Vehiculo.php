@@ -12,7 +12,7 @@ class Vehiculo extends Model
    protected $fillable = ['color','placa', 'tipo', 'modelo'];
     public function ingreso_vehiculo()
     {
-    return $this->hasManythrough(Ticket::class,Ingreso_Vehiculo::class);
+    return $this->hasManythrough(Salida_Vehiculo::class,Ingreso_Vehiculo::class);
     } 
 
 }

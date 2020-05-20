@@ -19,13 +19,15 @@
             <input type="text" name="color" class="form-control" placeholder="Ingresa Color Del Vehiculo..." style="text-align: center">
         </div>
         <div class="form-group">
-            <label for="descripcion">Tipo De Vehiculo</label>
-            <select name="tipo" id="tipo" class="form-control input-md" style="text-align: center">
-                <option value="O" disabled selected>Selecione Tipo</option>
+            <label for="tipo_vehiculo">Tipo De Vehiculo</label>
+            <select name="tipo" id="tipo" class="form-control selectpicker" data-livesearch="true" required style="text-align: center">
+                <option value="" disabled selected>Selecione Tipo</option>
                 <option value="Automovil">Automovil</option>
                 <option value="Motocicleta">Motocicleta</option>
+                <option value="Motocicleta">Bicicicleta</option>
+                <option value="Motocicleta">Camion</option>
             </select>
-            <!--<input type="text" name="tipo" class="form-control" placeholder="Tipo...">-->
+
         </div>
         <div class="form-group">
             <label for="nombre">Placa</label>

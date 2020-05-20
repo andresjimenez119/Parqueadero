@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Ingreso_vehiculo;
 use DB;
@@ -17,7 +18,7 @@ class Ingreso_vehiculoController extends Controller
     public function index()
     {
         $ingreso = Ingreso_vehiculo::all();
-        return view('IngresoV.index')->with('ingreso', $ingreso);
+        return view('IngresoVehiculo.index')->with('ingreso', $ingreso);
     }
 
     /**
@@ -27,7 +28,10 @@ class Ingreso_vehiculoController extends Controller
      */
     public function create()
     {
-        //
+        $vehiculo = DB::table('vehiculos')
+            ->select('vehiculos.placa', 'vehiculos.id')
+            ->get();
+        return view('IngresoVehiculo.create')->with('vehiculo', $vehiculo);
     }
 
     /**
@@ -38,7 +42,14 @@ class Ingreso_vehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ingreso = new Ingreso_vehiculo;
+        $ingreso->id = $request->get('id');
+        $ingreso->fecha_ingreso = $request->get('fecha_ingreso');
+        $ingreso->estado = $request->get('estado');
+        $ingreso->users_id = $request->get('users_id');
+        $ingreso->vehiculos_id = $request->get('vehiculos_id');
+        $ingreso->save();
+        return Redirect::to('ingresoV');
     }
 
     /**
@@ -49,7 +60,8 @@ class Ingreso_vehiculoController extends Controller
      */
     public function show($id)
     {
-        //
+        $ingreso = Ingreso_Vehiculo::find($id);
+        return view('IngresoVehiculo.show', compact('ingresoVehiculos'));
     }
 
     /**
@@ -60,7 +72,9 @@ class Ingreso_vehiculoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ingreso = Ingreso_Vehiculo::find($id);
+        $vehiculos_id= DB::table('ingreso_vehiculos')->select('ingreso_vehiculos.id', 'ingreso_vehiculos.vehiculos_id')->get();
+        return view('ingresoVehiculo.edit', compact('ingreso'))->with('vehiculos_id', $vehiculos_id);
     }
 
     /**
@@ -72,7 +86,9 @@ class Ingreso_vehiculoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, ['fecha_ingreso' => 'required', 'estado' => 'required', 'users_id' => 'required', 'vehiculos_id' => 'required']);
+        Ingreso_Vehiculo::find($id)->update($request->all());
+        return Redirect()->route('ingresoVehiculo.index')->with('success', 'Ingreso Actualizado');
     }
 
     /**
@@ -83,6 +99,7 @@ class Ingreso_vehiculoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Ingreso_Vehiculo::find($id)->delete();
+        return redirect()->route('ingresoVehiculo.index')->with('success', 'Ingreso Eliminado');
     }
 }

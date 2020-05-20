@@ -15,15 +15,20 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-
+Route::resource('ingresoV','Ingreso_vehiculoController');
 Route::resource('vehiculo', 'VehiculoController');
 Route::resource('empleado', 'EmpleadoController');
-
 Route::resource('tarifa', 'TarifaController');
-
 Route::resource('tipovehiculo', 'TipoVehiculoController');
 
-Route::resource('ingresoV','Ingreso_vehiculoController');
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'ChatsController@index');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
+ 
 
 
 /*
@@ -40,13 +45,3 @@ Route::get('/', function () {
     return view('welcome')->with('tarifa',$tarifa);
 });
 */
-
-
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/', 'ChatsController@index');
-Route::get('messages', 'ChatsController@fetchMessages');
-Route::post('messages', 'ChatsController@sendMessage');
- 
-
