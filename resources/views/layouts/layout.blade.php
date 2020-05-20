@@ -281,8 +281,8 @@ desired effect
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#">Ingresos</a></li>
-                            <li><a href="#">Salidas</a></li>
+                            <li><a href="{{url('ingresoV')}}">Ingresos</a></li>
+                            <li><a href="{{url('salidaV')}}">Salidas</a></li>
                         </ul>
                     </li>
                 </ul>

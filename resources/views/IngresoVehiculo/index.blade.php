@@ -15,23 +15,23 @@
                     <th>ID</th>
                     <th>Fecha Ingreso</th>
                     <th>Estado</th>
-                    <th>Usuario</th>
-                    <th>Vehiculo</th>
+                    <th>ID Usuario</th>
+                    <th>ID Vehiculo</th>
                     <th>Opciones</th>
 
                 </thead>
                 @foreach ($ingreso as $ingreso)
                 <tr>
-                    <td>{{$ingreso->Id_Ingreso}}</td>
-                    <td>{{$ingreso->Fecha_Ingreso}}</td>
-                    <td>{{$ingreso->Estado}}</td>
-                    <td>{{$ingreso->Users_Id}}</td>
-                    <td>{{$ingreso->Vehiculos_Id_Vehiculos}}</td>
+                    <td>{{$ingreso->id}}</td>
+                    <td>{{$ingreso->fecha_ingreso}}</td>
+                    <td>{{$ingreso->estado}}</td>
+                    <td>{{$ingreso->users_id}}</td>
+                    <td>{{$ingreso->vehiculos_id}}</td>
                     <td>
-                        <a href="{{URL::action('IngresoVehiculoController@edit',$ingreso->Id_Ingreso)}}">
+                        <a href="{{URL::action('IngresoVehiculoController@edit',$ingreso->id)}}">
                             <button class="btn btn-info">Editar</button></a>
 
-                        <a href="" data-target="#modal-delete-{{$ingreso->Id_Ingreso}}" data-toggle="modal">
+                        <a href="" data-target="#modal-delete-{{$ingreso->id}}" data-toggle="modal">
                             <button class="btn btn-danger">Eliminar</button></a>
                     </td>
                 </tr>
