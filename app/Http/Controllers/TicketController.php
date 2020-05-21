@@ -29,7 +29,7 @@ class TicketController extends Controller
                 ->where('t.estado', 'Activo')
                 ->where('i.estado', 'Activo')
                 ->paginate(10);
-            return view('ticket.index', ["ticket" => $ticket, "searchText" => $query]);
+            return view('Ticket.index', ["ticket" => $ticket, "searchText" => $query]);
         }
     }
 
@@ -38,11 +38,30 @@ class TicketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    public function generarTicket($ticket, $id, $valor)
+    {
+        $mytime = Carbon::now('America/Bogota');
+        $tarifa = Ingreso_vehiculo::findOrFail($id);
+        $horas = $tarifa->fecha_ingreso->diffInHours();
+        $total = $horas * $valor;
+        $ticket = new Ticket;
+        $ticket->fecha_salida = $mytime->toDateTimeString();
+        $ticket->total = $total;
+        $ticket->ingreso_id = $id;
+        $ticket->save();
+        $tarifa->estado = 'Inactivo'; //Cancelado
+        $tarifa->update();
+        //Mostrar en pantalla
+        //dd($ticket);
+       return Redirect::to('Ticket');
+    }
+
+/*    public function create()
     {
         //
     }
-
+*/
     /**
      * Store a newly created resource in storage.
      *

@@ -281,8 +281,8 @@ desired effect
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="{{url('ingresoV')}}">Ingresos</a></li>
-                            <li><a href="{{url('ticket')}}">Salidas</a></li>
+                            <li><a href="{{url('ingresoV')}}">Ingreso Vehiculos</a></li>
+                            <li><a href="{{url('ticket')}}">Salida Vehiculos</a></li>
                         </ul>
                     </li>
                 </ul>

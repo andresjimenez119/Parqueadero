@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
+
+
+Route::get('ticket/{placa}/{id}/{valor}','TicketController@generarTicket')->name('ticket');
+
 Route::resource('ticket','TicketController');
 Route::resource('ingresoV','Ingreso_vehiculoController');
 Route::resource('vehiculo', 'VehiculoController');
