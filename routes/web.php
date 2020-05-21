@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
+Route::resource('ticket','TicketController');
 Route::resource('ingresoV','Ingreso_vehiculoController');
 Route::resource('vehiculo', 'VehiculoController');
 Route::resource('empleado', 'EmpleadoController');

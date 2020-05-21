@@ -282,7 +282,7 @@ desired effect
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="{{url('ingresoV')}}">Ingresos</a></li>
-                            <li><a href="{{url('salidaV')}}">Salidas</a></li>
+                            <li><a href="{{url('ticket')}}">Salidas</a></li>
                         </ul>
                     </li>
                 </ul>
