@@ -5,7 +5,7 @@
         <h3>Listado de ingresos </h3>
         <div style="text-align: right">
             <a href="/ingresoV/create"><button class="btn btn-primary">Nuevo  <span class="glyphicon glyphicon-folder-open"></button></a>
-            <a href="/salidaV"><button style="text-align: right" class="btn btn-success">Ir a Generar Salida  <span class="glyphicon glyphicon-log-out"></button></a>
+            <a href="/ticket"><button style="text-align: right" class="btn btn-success">Ir a Generar Salida  <span class="glyphicon glyphicon-log-out"></button></a>
             </div>
         <hr>
        

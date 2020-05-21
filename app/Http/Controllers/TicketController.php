@@ -54,7 +54,7 @@ class TicketController extends Controller
         $tarifa->update();
         //Mostrar en pantalla
         //dd($ticket);
-       return Redirect::to('Ticket');
+       return Redirect::to('ticket');
     }
 
 /*    public function create()
