@@ -15,10 +15,21 @@ class Ingreso_vehiculoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $ingreso = Ingreso_vehiculo::all();
-        return view('IngresoVehiculo.index')->with('ingreso', $ingreso);
+        if ($request) {
+            $query = trim($request->get('searchText'));
+            $ingreso = DB::table('ingreso_vehiculos as i')
+            ->join('vehiculos as v','i.vehiculos_id', '=','v.id')
+            ->join('users as u','u.id','=','i.users_id')
+            ->Select('i.id','i.fecha_ingreso','i.estado','i.users_id','i.vehiculos_id','u.name','v.placa')
+            ->where('v.placa', 'LIKE', '%' . $query . '%')
+            ->paginate(10);
+            return view('ingresoVehiculo.index', ["ingreso" => $ingreso, "searchText" => $query]);
+
+        //$ingreso = Ingreso_vehiculo::all();
+        //return view('IngresoVehiculo.index')->with('ingreso', $ingreso);
+        }
     }
 
     /**
@@ -26,6 +37,7 @@ class Ingreso_vehiculoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         $vehiculo = DB::table('vehiculos')

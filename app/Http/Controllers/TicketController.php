@@ -42,22 +42,22 @@ class TicketController extends Controller
     public function generarTicket($ticket, $id, $valor)
     {
         $mytime = Carbon::now('America/Bogota');
-        $tarifa = Ingreso_vehiculo::findOrFail($id);
-        $horas = $tarifa->fecha_ingreso->diffInHours();
+        $ticket = Ingreso_vehiculo::findOrFail($id);
+        $horas = $ticket->fecha_ingreso->diffInHours();
         $total = $horas * $valor;
         $ticket = new Ticket;
         $ticket->fecha_salida = $mytime->toDateTimeString();
         $ticket->total = $total;
         $ticket->ingreso_id = $id;
         $ticket->save();
-        $tarifa->estado = 'Inactivo'; //Cancelado
-        $tarifa->update();
+        $ticket->estado = 'Inactivo'; //Cancelado
+        $ticket->update();
         //Mostrar en pantalla
         //dd($ticket);
-       return Redirect::to('ticket');
+        return Redirect::to('ticket');
     }
 
-/*    public function create()
+    /*    public function create()
     {
         //
     }
@@ -70,7 +70,12 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ticket = new Ticket;
+        $ticket->fecha_salida = $request->get('fecha_salida');
+        $ticket->total = $request->get('total');
+        $ticket->ingreso_id = $request->get('ingreso_id');
+        $ticket->save();
+        return Redirect::to('ticket');
     }
 
     /**
@@ -81,7 +86,8 @@ class TicketController extends Controller
      */
     public function show($id)
     {
-        //
+        $ticket = Ticket::find($id);
+        return view('Ticket.show', compact('tickets'));
     }
 
     /**
@@ -115,6 +121,7 @@ class TicketController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Ticket::find($id)->delete();
+        return redirect()->route('Ticket.index')->with('success', 'Salida Eliminada');
     }
 }

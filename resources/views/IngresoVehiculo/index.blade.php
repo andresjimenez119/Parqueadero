@@ -3,15 +3,14 @@
 <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="text-align: center">
         <h3>Listado de ingresos </h3>
+        @include('IngresoVehiculo.search')
         <div style="text-align: right">
             <a href="/ingresoV/create"><button class="btn btn-primary">Nuevo  <span class="glyphicon glyphicon-folder-open"></button></a>
             <a href="/ticket"><button style="text-align: right" class="btn btn-success">Ir a Generar Salida  <span class="glyphicon glyphicon-log-out"></button></a>
-            </div>
-        <hr>
-       
+        </div>
+        <hr>       
     </div>
 </div>
-
 
 <div class="row">
     <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
@@ -31,8 +30,8 @@
                     <td>{{$ingreso->id}}</td>
                     <td>{{$ingreso->fecha_ingreso}}</td>
                     <td>{{$ingreso->estado}}</td>
-                    <td>{{$ingreso->users_id}}</td>
-                    <td>{{$ingreso->vehiculos_id}}</td>
+                    <td>{{$ingreso->name}}</td>
+                    <td>{{$ingreso->placa}}</td>
                     <td>
                         <a href="{{URL::action('Ingreso_vehiculoController@edit',$ingreso->id)}}">
                             <button class="btn btn-info">Editar  <span class="glyphicon glyphicon-pencil"></button></a>
