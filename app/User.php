@@ -27,14 +27,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function roles(){
+    public function roles()
+    {
 
         return $this
             ->belongsToMany('App\Role')
             ->withTimestamps();
     }
 
-    public function authorizeRoles($roles){
+    public function authorizeRoles($roles)
+    {
 
         if ($this->hasAnyRole($roles)) {
             return true;
@@ -42,7 +44,8 @@ class User extends Authenticatable
         abort(401, 'Esta acción no está autorizada.');
     }
 
-    public function hasAnyRole($roles){
+    public function hasAnyRole($roles)
+    {
 
         if (is_array($roles)) {
             foreach ($roles as $role) {
@@ -58,7 +61,8 @@ class User extends Authenticatable
         return false;
     }
 
-    public function hasRole($role){
+    public function hasRole($role)
+    {
 
         if ($this->roles()->where('name', $role)->first()) {
             return true;
@@ -68,8 +72,7 @@ class User extends Authenticatable
 
     public function messages()
     {
-     return $this->hasMany(Message::class);
+        return $this->hasMany(Message::class);
     }
     
-
 }

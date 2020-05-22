@@ -12,8 +12,8 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use App\User;
 use App\Message;
 
-class MessageSent implements ShouldBroadcast
-{
+class MessageSent implements ShouldBroadcast {
+
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $user;
@@ -23,7 +23,7 @@ class MessageSent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user, Message $message)
     {
         $this->user = $user;
         $this->message = $message;
