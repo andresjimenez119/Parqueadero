@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Message;
 use App\User;
 use App\Events\MessageSent;
 use Illuminate\Support\Facades\Auth;
+
 
 class ChatsController extends Controller
 {
