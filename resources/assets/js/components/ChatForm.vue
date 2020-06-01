@@ -1,6 +1,6 @@
 <template>
   <div class="input-group">
-    <input id="btn-input" type="text" name="message" class="formcontrol input-sm" placeholder="Ingrese su mensaje aquí..." vmodel="newMessage" @keyup.enter="sendMessage"/>
+    <input id="btn-input" type="text" name="message" class="formcontrol input-sm" placeholder="Ingrese su mensaje aquí..." vmodel="newMessage" @keyup.enter="sendMessage">
     <span class="input-group-btn">
       <button class="btn btn-primary btn-sm" id="btn-chat" @click="sendMessage">Send</button>
     </span>
@@ -12,8 +12,8 @@ export default {
   props: ["user"],
   data() {
     return {
-      newMessage: ""
-    };
+      newMessage: ''
+    }
   },
   methods: {
     sendMessage() {
@@ -21,8 +21,8 @@ export default {
         user: this.user,
         message: this.newMessage
       });
-      this.newMessage = "";
+      this.newMessage = ''
     }
   }
-};
+}
 </script>

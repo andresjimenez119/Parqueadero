@@ -273,6 +273,7 @@ desired effect
                     <li class="active"><a href="{{url('tipovehiculo')}}"><i class="fa fa-link"></i> <span>Tipo Vehiculo</span></a></li>
                     <li class="active"><a href="{{url('tarifa')}}"><i class="fa fa-link"></i> <span>Tarifa</span></a></li>
                     <li class="active"><a href="{{url('empleado')}}"><i class="fa fa-link"></i> <span>Empleados</span></a></li>
+                    <li class="active"><a href="{{url('chat')}}"><i class="fa fa-link"></i> <span>Chat</span></a></li>
                     
                     <li class="treeview">
                         <a href="#"><i class="fa fa-link"></i> <span>Movimientos</span>
