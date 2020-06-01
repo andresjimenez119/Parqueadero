@@ -137,7 +137,7 @@
     <br><br>
     <hr><br>
 
-
+    <a href="{{ route('home') }}">Atrás </span></a>
 
 </body>
 
