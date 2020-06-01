@@ -17,10 +17,10 @@ Route::get('/', function () {
 
 
 
-Route::get('ticket/{placa}/{id}/{valor}','TicketController@generarTicket')->name('ticket');
+Route::get('ticket/{placa}/{id}/{valor}', 'TicketController@generarTicket')->name('ticket');
 
-Route::resource('ticket','TicketController');
-Route::resource('ingresoV','Ingreso_vehiculoController');
+Route::resource('ticket', 'TicketController');
+Route::resource('ingresoV', 'Ingreso_vehiculoController');
 Route::resource('vehiculo', 'VehiculoController');
 Route::resource('empleado', 'EmpleadoController');
 Route::resource('tarifa', 'TarifaController');
@@ -30,6 +30,14 @@ Route::resource('tipovehiculo', 'TipoVehiculoController');
 Route::get('chat', 'ChatsController@index');
 Route::get('messages', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');
+
+Route::get('jquery', function () {
+    return view('Practicasjq/index');
+});
+
+Route::get('jquery2', function () {
+    return view('Practicasjq/index2');
+});
 
 
 Auth::routes();

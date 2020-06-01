@@ -286,6 +286,10 @@ desired effect
                             <li><a href="{{url('ticket')}}">Salida Vehiculos</a></li>
                         </ul>
                     </li>
+
+                    <li class="active"><a href="{{url('jquery')}}"><i class="fa fa-link"></i> <span>Prueba Jquery</span></a></li>
+
+
                 </ul>
                 <!-- /.sidebar-menu -->
             </section>
