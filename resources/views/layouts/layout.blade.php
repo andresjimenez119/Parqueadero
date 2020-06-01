@@ -273,7 +273,6 @@ desired effect
                     <li class="active"><a href="{{url('tipovehiculo')}}"><i class="fa fa-link"></i> <span>Tipo Vehiculo</span></a></li>
                     <li class="active"><a href="{{url('tarifa')}}"><i class="fa fa-link"></i> <span>Tarifa</span></a></li>
                     <li class="active"><a href="{{url('empleado')}}"><i class="fa fa-link"></i> <span>Empleados</span></a></li>
-                    <li class="active"><a href="{{url('chat')}}"><i class="fa fa-link"></i> <span>Chat</span></a></li>
                     
                     <li class="treeview">
                         <a href="#"><i class="fa fa-link"></i> <span>Movimientos</span>
@@ -287,7 +286,19 @@ desired effect
                         </ul>
                     </li>
 
-                    <li class="active"><a href="{{url('jquery')}}"><i class="fa fa-link"></i> <span>Prueba Jquery</span></a></li>
+                    <li class="active"><a href="{{url('chat')}}"><i class="fa fa-link"></i> <span>Chat</span></a></li>
+                    
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-link"></i> <span>Pruebas Jquery</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{url('jquery')}}">Accion Enlaces</a></li>
+                            <li><a href="{{url('jquery2')}}">Otras Acciones</a></li>
+                        </ul>
+                    </li>
 
 
                 </ul>
