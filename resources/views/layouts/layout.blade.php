@@ -271,25 +271,25 @@ desired effect
                     <!-- Optionally, you can add icons to the links -->
                     <li class="active"><a href="{{url('vehiculo')}}"><i class="fa fa-link"></i> <span>Vehiculos</span></a></li>
                     <li class="active"><a href="{{url('tipovehiculo')}}"><i class="fa fa-link"></i> <span>Tipo Vehiculo</span></a></li>
-                    <li class="active"><a href="{{url('tarifa')}}"><i class="fa fa-link"></i> <span>Tarifa</span></a></li>
-                    <li class="active"><a href="{{url('empleado')}}"><i class="fa fa-link"></i> <span>Empleados</span></a></li>
+                    <li class="active"><a href="{{url('tarifa')}}"><i class="glyphicon glyphicon-usd"></i> <span>Tarifa</span></a></li>
+                    <li class="active"><a href="{{url('empleado')}}"><i class="glyphicon glyphicon-user"></i> <span>Empleados</span></a></li>
                     
                     <li class="treeview">
-                        <a href="#"><i class="fa fa-link"></i> <span>Movimientos</span>
+                        <a href="#"><i class="glyphicon glyphicon-refresh"></i> <span>Movimientos</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="{{url('ingresoV')}}">Ingreso Vehiculos</a></li>
-                            <li><a href="{{url('ticket')}}">Salida Vehiculos</a></li>
+                            <li><a href="{{url('ingresoV')}}"><span class="glyphicon glyphicon-circle-arrow-right"> Ingreso Vehiculos</span></a></li>
+                            <li><a href="{{url('ticket')}}"><span class="glyphicon glyphicon-circle-arrow-left"> Salida Vehiculos</span></a></li>
                         </ul>
                     </li>
 
-                    <li class="active"><a href="{{url('chat')}}"><i class="fa fa-link"></i> <span>Chat</span></a></li>
+                    <li class="active"><a href="{{url('chat')}}"><i class="glyphicon glyphicon-send"></i> <span>Chat</span></a></li>
                     
                     <li class="treeview">
-                        <a href="#"><i class="fa fa-link"></i> <span>Pruebas Jquery</span>
+                        <a href="#"><i class="glyphicon glyphicon-eye-open"></i> <span>Pruebas Jquery</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
