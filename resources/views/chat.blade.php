@@ -14,6 +14,7 @@
                     <chat-form v-on:messageSent="addMessage":user="{{Auth::user()}}"></chat-form>
                 </div>
             </div>
+            <a href="{{url('home')}}" class="btn btn-info">Salir Del Chat <span class="glyphicon glyphicon-triangle-left"></span></a>
         </div>
     </div>
 </div>
