@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 
+Route::get('imprimirVehiculos','PdfController@imprimirVehiculos')->name('imprimirVehiculos');
 
 Route::get('ticket/{placa}/{id}/{valor}', 'TicketController@generarTicket')->name('ticket');
 

@@ -3,10 +3,13 @@
 
 <div class="row" style="text-align: center">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3> Registrar Nuevo Vehiculo <a href="vehiculo/create"><button class="btn btn-success">Nuevo 
+        <h3> Registrar Nuevo Vehiculo <a href="vehiculo/create"><button class="btn btn-success">Nuevo
                     <span class="glyphicon glyphicon-folder-open"></span></button></a></h3>
         @include('Vehiculo.search')
         <h3>Listado de Vehiculos </h3>
+
+        <h3>Reporte Todos Los Vehiculos <a href="\imprimirVehiculos"><button class="btn btn-success">
+                    <span class="glyphicon glyphicon-downloadalt"></span> Generar PDF</button></a></h3>
 
     </div>
 </div>
