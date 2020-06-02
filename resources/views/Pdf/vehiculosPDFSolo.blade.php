@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Vehiculos | Sistema Web</title>
+    <title>Vehiculo Unico | Sitio Web </title>
 </head>
 
 <body>
     <div class="container">
-        <h3 class="text-center">Reporte de Vehiculos</h3>
+        <h3 class="text-center">Reporte De Vehiculo</h3>
         <img align="right" src="" alt="" width='100px'>
         <br><br>
         <h1 class="text-center">Parqueadero Warriors</h1>
@@ -19,15 +19,21 @@
         <br><br><br>
         <table class="table table-bordered table-striped table-hover">
             <tr>
-                <th>Tipo Vehiculo</th>
+                <th>Vehiculo ID</th>
+                <th>Color</th>
                 <th>Placa</th>
+                <th>Tipo Vehiculo</th>
+                <th>Modelo</th>   
             </tr>
-            @foreach($vehiculos as $ve)
+
             <tr>
-                <td>ID: {{$ve->tipo}} {{$ve->nombre}}</td>
-                <td>{{$ve->placa}}</td>
+                <td>ID: {{$id}}</td>
+                <td>{{$color}}</td>
+                <td>{{$placa}}</td>
+                <td>{{$tipovehiculo}}</td>
+                <td>{{$modelo}}</td>
             </tr>
-            @endforeach
+
         </table>
         <br>
         <h5 class="text-center">Usuario: {{auth()->user()->name}}</h5>
