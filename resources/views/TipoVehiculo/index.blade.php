@@ -9,6 +9,10 @@
                 <button class="btn btn-success">Nuevo <span class="glyphicon glyphicon-folder-open"></span>
                 </button></a></h3>
 
+
+        <h3>Reporte Todos Los Tipos De Vehiculos <a href="\imprimirTipoVehiculos"><button class="btn btn-warning">
+                    <span class="glyphicon glyphicon-downloadalt"></span> Generar PDF</button></a></h3>
+
         <h3>Listado Tipos De Vehiculos </h3>
 
     </div>
@@ -33,6 +37,8 @@
                             <button class="btn btn-info">Editar <span class="glyphicon glyphicon-pencil"></button></a>
                         <a href="" data-target="#modal-delete-{{$tipo_vehiculo->id}}" data-toggle="modal">
                             <button class="btn btn-danger">Eliminar <span class="glyphicon glyphicon-remove"></button></a>
+                        <a href="{{URL::action('PdfController@imprimirTipoVehiculoUnico',$tipo_vehiculo->id)}}"><button class="btn btn-warning">
+                                <span class="glyphicon glyphicon-downloadalt"></span> Generar PDF</button></a>
                     </td>
                 </tr>
 

@@ -7,6 +7,7 @@ use DB;
 
 class PdfController extends Controller
 {
+    //Vehiculos
     public function imprimirVehiculos(Request $request)
     {
         $vehiculos = DB::table('vehiculos as ve')
@@ -18,40 +19,83 @@ class PdfController extends Controller
         return $pdf->download('Listado de Vehiculos.pdf');
     }
 
-
     public function imprimirVehiculoUnico(Request $request, $id)
     {
-
         $vehiculounico = DB::table('vehiculos as ve')
             ->join('tipo_vehiculos as tv', 'tv.id', '=', 've.tipo')
             ->select('tv.nombre', 've.id', 've.color', 've.placa', 've.tipo', 've.modelo')
             ->where('ve.id', '=', $id)->get();
 
-            foreach ($vehiculounico as $ve) {
-                $id = $ve->id;
-                $color = $ve->color;
-                $placa = $ve->placa;
-                $tipovehiculo = $ve->nombre;
-                $modelo = $ve->modelo;
-            }
-
-            $pdf = \PDF::loadView('Pdf.vehiculosPDFSolo',[
-                'id' => $id,
-                'color' => $color,
-                'placa' => $placa,
-                'tipovehiculo' => $tipovehiculo,
-                'modelo' => $modelo,
-               
-            ]);
+        foreach ($vehiculounico as $ve) {
+            $id = $ve->id;
+            $color = $ve->color;
+            $placa = $ve->placa;
+            $tipovehiculo = $ve->nombre;
+            $modelo = $ve->modelo;
+        }
+        $pdf = \PDF::loadView('Pdf.vehiculoUnicoPDF', [
+            'id' => $id,
+            'color' => $color,
+            'placa' => $placa,
+            'tipovehiculo' => $tipovehiculo,
+            'modelo' => $modelo,
+        ]);
         $pdf->setPaper('carta', 'A4');
         return $pdf->download('Vehiculo Unico.pdf');
     }
 
-
-    //PDF DE TODOS LOS INGRESOS//
-    public function imprimirIngreso_vehiculos(Request $request)
+    //Tipos De Vehiculos
+    public function imprimirTipoVehiculos(Request $request)
     {
+        $tipovehiculos = DB::table('tipo_vehiculos as tv')
+            ->select('tv.id', 'tv.nombre', 'tv.descripcion')
+            ->get();
+        $pdf = \PDF::loadView('Pdf.tipoVehiculosPDF', ['tipovehiculos' => $tipovehiculos]);
+        $pdf->setPaper('carta', 'A4');
+        return $pdf->download('Lista Tipo Vehiculos.pdf');
+    }
 
+    public function imprimirTipoVehiculoUnico(Request $request, $id)
+    {
+        $tipovehiculounico = DB::table('tipo_vehiculos as tv')
+            ->select('tv.id', 'tv.nombre', 'tv.descripcion')
+            ->where('tv.id', '=', $id)->get();
+
+        foreach ($tipovehiculounico as $tv) {
+            $id = $tv->id;
+            $nombre = $tv->nombre;
+            $descripcion = $tv->descripcion;
+        }
+
+        $pdf = \PDF::loadView('Pdf.tipoVehiculoUnicoPDF', [
+            'id' => $id,
+            'nombre' => $nombre,
+            'descripcion' => $descripcion,
+        ]);
+        $pdf->setPaper('carta', 'A4');
+        return $pdf->download('Tipo Vehiculo Unico.pdf');
+    }
+
+    //Tarifas
+    public function imprimirTarifas(Request $request)
+    {
+        $tarifas = DB::table('tarifas as tar')
+            ->join('tipo_vehiculos as tv', 'tv.id', '=', 'tar.tipo_vehiculo_id')
+            ->select('tar.id', 'tar.tipo_vehiculo_id', 'tar.valor', 'tar.estado', 'tv.nombre')
+            ->get();
+        $pdf = \PDF::loadView('Pdf.tarifasPDF', ['tarifas' => $tarifas]);
+        $pdf->setPaper('carta', 'A4');
+        return $pdf->download('Lista Tarifas.pdf');
+    }
+
+
+
+
+
+
+
+    public function imprimirIngresos(Request $request)
+    {
         $ingreso = DB::table('ingreso_vehiculos as i')
             ->join('vehiculos as ve', 've.Id_Vehiculo', '=', 'i.Vehiculo_Id_Vehiculo')
             ->join('tipo_vehiculos as tv', 'tv.Id_Tipo', '=', 've.table1_Id_Tipo')
@@ -144,5 +188,4 @@ class PdfController extends Controller
         $pdf->setPaper('carta', 'A4');
         return $pdf->download('Salida Especifico.pdf');
     }
-
 }

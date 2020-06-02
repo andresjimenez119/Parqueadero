@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Vehiculo Unico | Sitio Web </title>
+    <title>Tarifas | Sistema Web</title>
 </head>
 
 <body>
     <div class="container">
-        <h3 class="text-center">Reporte De Vehiculo</h3>
+        <h3 class="text-center">Reporte de Tarifas</h3>
         <img align="right" src="" alt="" width='100px'>
         <br><br>
         <h1 class="text-center">Parqueadero Warriors</h1>
@@ -19,21 +19,19 @@
         <br><br><br>
         <table class="table table-bordered table-striped table-hover">
             <tr>
-                <th>Vehiculo ID</th>
-                <th>Color</th>
-                <th>Placa</th>
+                <th>Tarifa ID</th>
                 <th>Tipo Vehiculo</th>
-                <th>Modelo</th>   
+                <th>Valor</th>
+                <th>Estado</th>
             </tr>
-
+            @foreach($tarifas as $tar)
             <tr>
-                <td>ID: {{$id}}</td>
-                <td>{{$color}}</td>
-                <td>{{$placa}}</td>
-                <td>{{$tipovehiculo}}</td>
-                <td>{{$modelo}}</td>
+                <td>ID: {{$tar->id}}</td>
+                <td>{{$tar->nombre}}</td>
+                <td>{{$tar->valor}}</td>
+                <td>{{$tar->estado}}</td>
             </tr>
-
+            @endforeach
         </table>
         <br>
         <h5 class="text-center">Usuario: {{auth()->user()->name}}</h5>

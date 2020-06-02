@@ -18,6 +18,12 @@ Route::get('/', function () {
 
 Route::get('imprimirVehiculos','PdfController@imprimirVehiculos')->name('imprimirVehiculos');
 Route::get('imprimirVehiculoUnico/{id}','PdfController@imprimirVehiculoUnico')->name('imprimirVehiculoUnico');
+Route::get('imprimirTipoVehiculos','PdfController@imprimirTipoVehiculos')->name('imprimirTipoVehiculos');
+Route::get('imprimirTipoVehiculoUnico/{id}','PdfController@imprimirTipoVehiculoUnico')->name('imprimirTipoVehiculoUnico');
+Route::get('imprimirTarifas','PdfController@imprimirTarifas')->name('imprimirTarifas');
+
+
+
 
 
 Route::get('ticket/{placa}/{id}/{valor}', 'TicketController@generarTicket')->name('ticket');
