@@ -110,7 +110,7 @@ class PdfController extends Controller
             ->join('tickets as tic', 'tic.ingreso_id', '=', 'i.id')
             ->join('tipo_vehiculos as tv', 'tv.id', '=', 'v.tipo')
             ->join('tarifas as t', 'tv.id', '=', 't.tipo_vehiculo_id')
-            ->SELECT('i.id', 'v.placa', 'tv.nombre', 'i.fecha_ingreso', 'tic.fecha_salida', 'tic.total')->get();
+            ->SELECT('tic.id', 'v.placa', 'tv.nombre', 'i.fecha_ingreso', 'tic.fecha_salida', 'tic.total')->get();
 
         $pdf = \PDF::loadView('Pdf.SalidasPDF', ['salida' => $salida]);
         $pdf->setPaper('carta', 'A4');

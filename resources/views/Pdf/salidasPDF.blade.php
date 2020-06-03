@@ -51,7 +51,6 @@
             <tr>
                 <td colspan="5">Recuado Total</td>
                 <td>{{$suma}}</td>
-
             </tr>
 
         </table>
