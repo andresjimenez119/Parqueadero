@@ -17,6 +17,12 @@
         <h3 class="text-center">NIT: 123456789-1</h3>
         <h3 class="text-center">Tel. 6666666</h3>
         <br><br><br>
+
+        @php
+        $suma=0;
+        $contador=0;
+        @endphp
+
         <table class="table table-bordered table-striped table-hover">
             <tr>
                 <th>Salida ID</th>
@@ -34,12 +40,25 @@
                 <td>{{$s->fecha_ingreso}}</td>
                 <td>{{$s->fecha_salida}}</td>
                 <td>{{$s->total}}</td>
+
+                @php
+                $suma= $suma + $s->total;
+                @endphp
+
             </tr>
             @endforeach
+
+            <tr>
+                <td colspan="5">Recuado Total</td>
+                <td>{{$suma}}</td>
+
+            </tr>
+
         </table>
         <br>
         <h5 class="text-center">Usuario: {{auth()->user()->name}}</h5>
         <h6 align="center">Software de Parqueaderos version 1</h6>
     </div>
 </body>
+
 </html>
