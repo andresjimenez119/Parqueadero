@@ -269,8 +269,8 @@ desired effect
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">Menu</li>
                     <!-- Optionally, you can add icons to the links -->
-                    <li class="active"><a href="{{url('vehiculo')}}"><i class="fa fa-link"></i> <span>Vehiculos</span></a></li>
-                    <li class="active"><a href="{{url('tipovehiculo')}}"><i class="fa fa-link"></i> <span>Tipo Vehiculo</span></a></li>
+                    <li class="active"><a href="{{url('vehiculo')}}"><i class="fa fa-car"></i> <span>Vehiculos</span></a></li>
+                    <li class="active"><a href="{{url('tipovehiculo')}}"><i class="fa fa-car"></i> <span>Tipo Vehiculo</span></a></li>
                     <li class="active"><a href="{{url('tarifa')}}"><i class="glyphicon glyphicon-usd"></i> <span>Tarifa</span></a></li>
                     <li class="active"><a href="{{url('empleado')}}"><i class="glyphicon glyphicon-user"></i> <span>Empleados</span></a></li>
                     
