@@ -2,13 +2,16 @@
 @section('contenido')
 <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="text-align: center">
-        <h3>Listado de ingresos </h3>
+
+        <a href="/ticket"><button style="text-align: right" class="btn btn-success">Ir a Generar Salida
+                <span class="glyphicon glyphicon-log-out"></button></a>
+        <h3>Registrar Ingreso <a href="/ingresoV/create"><button class="btn btn-primary">Nuevo
+                    <span class="glyphicon glyphicon-folder-open"></button></a></h3>
+        <h3>Reporte Todos Los Ingresos <a href="\imprimirIngresos"><button class="btn btn-warning">
+                    <span class="glyphicon glyphicon-downloadalt"></span> Generar PDF</button></a></h3>
+        <hr>
+        <h3>Listado de ingresos </h3><br>
         @include('IngresoVehiculo.search')
-        <div style="text-align: right">
-            <a href="/ingresoV/create"><button class="btn btn-primary">Nuevo  <span class="glyphicon glyphicon-folder-open"></button></a>
-            <a href="/ticket"><button style="text-align: right" class="btn btn-success">Ir a Generar Salida  <span class="glyphicon glyphicon-log-out"></button></a>
-        </div>
-        <hr>       
     </div>
 </div>
 
@@ -34,10 +37,10 @@
                     <td>{{$ingreso->placa}}</td>
                     <td>
                         <a href="{{URL::action('Ingreso_vehiculoController@edit',$ingreso->id)}}">
-                            <button class="btn btn-info">Editar  <span class="glyphicon glyphicon-pencil"></button></a>
+                            <button class="btn btn-info">Editar <span class="glyphicon glyphicon-pencil"></button></a>
 
                         <a href="" data-target="#modal-delete-{{$ingreso->id}}" data-toggle="modal">
-                            <button class="btn btn-danger">Eliminar  <span class="glyphicon glyphicon-remove"></button></a>
+                            <button class="btn btn-danger">Eliminar <span class="glyphicon glyphicon-remove"></button></a>
                     </td>
                 </tr>
                 @endforeach
